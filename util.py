@@ -16,10 +16,12 @@ def read_benchmark_questions():
 
 
 def read_benchmark_questions_with_labels():
-    with open("./GeoQA-Test.tsv", "r") as file_content:
+    with open("./GeoQA-annotated.tsv", "r") as file_content:
         all_lines = file_content.readlines()
-        all_records = [{"label": line.split("\t")[0], "text": line.split("\t")[1].strip()} for line in all_lines]
+        all_records = [{"label": line.split("\t")[0], "text": line.split("\t")[1].strip()} for line in all_lines if
+                       len(line) > 0]
         return all_records
+
 
 def read_geoqa_training_data():
     with open("./201Training.tsv", "r") as data201:

@@ -1,3 +1,9 @@
+# ./models/geo-classification-model - qa44 all
+macro:  {'f1': 0.839493620414673}
+micro:  {'f1': 0.8636363636363636}
+weighted:  {'f1': 0.8694305495142817}
+
+
 # ./models/test-model-50 on GeoQA201 test set
 macro:  {'f1': 0.9035087719298246}
 micro:  {'f1': 0.9523809523809523}

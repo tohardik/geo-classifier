@@ -24,7 +24,7 @@ i2l = {
 }
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-metric = load_metric("f1", "accuracy")
+metric = load_metric("accuracy")
 
 
 def train(merge=False):
@@ -87,7 +87,7 @@ def tokenize_function(text):
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=-1)
-    return metric.compute(predictions=predictions, references=labels, average="micro")
+    return metric.compute(predictions=predictions, references=labels)
 
 
 class GeoQA201Dataset(torch.utils.data.Dataset):
@@ -105,4 +105,4 @@ class GeoQA201Dataset(torch.utils.data.Dataset):
 
 
 if __name__ == '__main__':
-    train(merge=True)
+    train()
