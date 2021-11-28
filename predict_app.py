@@ -69,7 +69,7 @@ def classify():
         LOG.error("/classify,  Invalid parameters provided")
         return "Invalid parameters provided", 400
     else:
-        LOG.info(f"/classify {request.method}, input={input_text}")
+        LOG.info(f"/classify {request.method}, input={input_text}, ablation={ablation_flag}")
         result = process_input(input_text)
         return jsonify({
             "inputText": input_text,
